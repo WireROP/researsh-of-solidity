@@ -145,7 +145,7 @@ bool FunctionCallGraphBuilder::visit(Identifier const& _identifier)
 	{
 		if (variable->isConstant())
 		{
-			solAssert(variable->isStateVariable(), "");
+			solAssert(variable->isStateVariable() || variable->isFileLevelVariable(), "");
 			variable->accept(*this);
 		}
 	}
